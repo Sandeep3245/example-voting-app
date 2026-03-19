@@ -4,18 +4,16 @@ pipeline {
     stages {
         stage('Step 1: Get the Code') {
             steps {
-                // This tells Jenkins to download YOUR specific GitHub repository
-bat 'kubectl --kubeconfig="C:\\Users\\sande\\.kube\\config" --context=minikube apply -f .'       
+                // This downloads your code from GitHub
+                git branch: 'master', url: 'https://github.com/Sandeep3245/example-voting-app.git'
             }
+        }
 
         stage('Step 2: Deploy to Kubernetes') {
             steps {
-                // First, Jenkins needs to open the specific folder where the YAML files live
                 dir('k8s-specifications') {
-                    
-                    // Finally, Jenkins types the EXACT command the instructor typed!
-                    bat 'kubectl apply -f .' 
-                    
+                    // This tells kubectl to use your new Minikube cluster
+                    bat 'kubectl --kubeconfig="C:\\Users\\sande\\.kube\\config" --context=minikube apply -f .' 
                 }
             }
         }
