@@ -15,7 +15,7 @@ pipeline {
                 dir('k8s-specifications') {
                     
                     // Finally, Jenkins types the EXACT command the instructor typed!
-                    sh 'kubectl apply -f .' 
+                    bat 'kubectl apply -f .' 
                     
                 }
             }
