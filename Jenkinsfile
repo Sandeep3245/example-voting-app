@@ -5,8 +5,8 @@ pipeline {
         stage('Step 1: Get the Code') {
             steps {
                 // This tells Jenkins to download YOUR specific GitHub repository
-bat 'kubectl --kubeconfig="C:\\Users\\sande\\.kube\\config" apply -f .'            }
-        }
+bat 'kubectl --kubeconfig="C:\\Users\\sande\\.kube\\config" --context=minikube apply -f .'       
+            }
 
         stage('Step 2: Deploy to Kubernetes') {
             steps {
