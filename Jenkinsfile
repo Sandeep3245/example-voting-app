@@ -5,8 +5,7 @@ pipeline {
         stage('Step 1: Get the Code') {
             steps {
                 // This tells Jenkins to download YOUR specific GitHub repository
-                git branch: 'master', url: 'https://github.com/Sandeep3245/example-voting-app.git'
-            }
+bat 'kubectl --kubeconfig="C:\\Users\\YOUR_WINDOWS_USERNAME\\.kube\\config" apply -f .'            }
         }
 
         stage('Step 2: Deploy to Kubernetes') {
